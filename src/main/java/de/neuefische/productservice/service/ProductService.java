@@ -25,15 +25,15 @@ public class ProductService {
             if(product.getId().contains(searchParam)){
                 productsContainingSearchParam.add(product);
             }
-
-        }
-        if(productsContainingSearchParam.size() == 0){
-            return productDb.listProducts();
         }
         return productsContainingSearchParam;
     }
 
     public Optional<Product> getProduct(String id){
         return productDb.getProduct(id);
+    }
+
+    public List<Product> getAllProducts() {
+        return productDb.listProducts();
     }
 }
