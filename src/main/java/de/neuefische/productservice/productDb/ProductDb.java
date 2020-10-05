@@ -22,6 +22,17 @@ public class ProductDb {
         return products;
     }
 
+    public List<Product> searchProducts(String searchParam){
+        List<Product> productsContainingSearchParam = new ArrayList<>();
+        for (Product product: products) {
+            if(product.getId().contains(searchParam)){
+                productsContainingSearchParam.add(product);
+            }
+        }
+        return productsContainingSearchParam;
+    }
+
+
     public Optional<Product> getProduct(String id){
         for (Product product: products) {
             if(product.getId().equals(id)){
